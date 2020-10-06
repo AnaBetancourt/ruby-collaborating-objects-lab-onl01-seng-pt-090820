@@ -22,27 +22,17 @@ class Artist
     Song.all.select{|song| song.artist == self}
   end 
 
-# def self.find(name)
-#     Artist.all.find{|artist| artist.name == name}
-#   end
+  def self.find(name)
+      self.all.find{|artist| artist.name == name}
+    end
 
-# def self.find_or_create_by_name(name)
-#     if self.find(name)
-#       return self.find(name)
-#     else
-#       return Artist.new(name)
-#     end
-#   end
 
   def self.find_or_create_by_name(name)
-    self.all.find do |artist| 
-      if artist.name == name
-        artist
+      if self.find(name)
+        self.find(name)
       else 
-        new = self.new(name)
+        self.new(name)
       end
-    end
-    new
   end
   
   def print_songs
@@ -50,7 +40,6 @@ class Artist
       puts song.name
     end
   end
-  
   
   
 end
