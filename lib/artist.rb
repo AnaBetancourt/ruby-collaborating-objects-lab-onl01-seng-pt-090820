@@ -39,12 +39,14 @@ class Artist
     if artist.name == name
        artist
      else 
-       self.new(name)
+       new = self.new(name)
      end
     end
+    new
   end
   
   def print_songs
-    puts self.songs
+    self.songs.each do |song|
+      puts song.name
   end
 end
