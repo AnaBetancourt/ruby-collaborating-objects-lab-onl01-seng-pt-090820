@@ -21,7 +21,7 @@ class Song
     song
   end
 
-  def self.artist_name=(name)
+  def artist_name=(name)
     binding.pry
     new_artist = Artist.find_or_create_by_name(name)
     self.artist = new_artist
